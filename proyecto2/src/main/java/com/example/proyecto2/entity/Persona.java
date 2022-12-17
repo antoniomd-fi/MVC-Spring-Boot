@@ -27,7 +27,7 @@ import java.util.List;
                 inverseJoinColumns = @JoinColumn(name="pasatiempo_fk", nullable = false)
         )
 */
-        @ManyToMany(cascade = CascadeType.ALL)
+        /*@ManyToMany(cascade = CascadeType.ALL)
         List<Pasatiempo> pasatiempos;
 
         public void addPasatiempo(Pasatiempo pasatiempo){
@@ -37,7 +37,7 @@ import java.util.List;
 
             this.pasatiempos.add(pasatiempo);
         }
-
+*/
         public Persona (){
 
         }

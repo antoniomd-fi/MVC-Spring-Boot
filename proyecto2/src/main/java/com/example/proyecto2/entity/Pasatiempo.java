@@ -15,8 +15,8 @@ public class Pasatiempo {
     private Integer pasatiempo;
     private Integer id_persona;
 
-    @ManyToMany(mappedBy = "pasatiempos")
-    private List<Persona> personas;
+    /*@ManyToMany(mappedBy = "pasatiempos")
+    private List<Persona> personas;*/
 
 
 
