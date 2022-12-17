@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-    import jakarta.persistence.*;
-    import java.util.ArrayList;
-    import java.util.List;
+
 
     @Entity
     @Table(name = "persona", schema = "public")
@@ -19,8 +17,8 @@ import java.util.List;
         private String apellidos;
         private Integer direccion_id;
 
-        @ManyToOne()
-        @JoinColumn(name = "dirección_id", referencedColumnName = "id", nullable = false)
+       /* @ManyToOne()
+       @JoinColumn(name = "direccion_id", referencedColumnName = "id", nullable = false)
         private Direccion direccion;
 
         @JoinTable(
@@ -28,7 +26,7 @@ import java.util.List;
                 joinColumns = @JoinColumn(name = "persona_fk", nullable = false),
                 inverseJoinColumns = @JoinColumn(name="pasatiempo_fk", nullable = false)
         )
-
+*/
         @ManyToMany(cascade = CascadeType.ALL)
         List<Pasatiempo> pasatiempos;
 
@@ -84,13 +82,13 @@ import java.util.List;
             this.direccion_id = direccion_id;
         }
 
-        public Direccion getDireccion() {
+       /* public Direccion getDireccion() {
             return direccion;
         }
 
         public void setDireccion(Direccion direccion) {
             this.direccion = direccion;
-        }
+        }*/
 
 
     }

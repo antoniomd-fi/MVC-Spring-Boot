@@ -20,7 +20,7 @@ public class Direccion {
     private Integer ciudad;
     private Integer estado;
 
-    @OneToMany(mappedBy = "direccion")
+   /* @OneToMany(mappedBy = "direccion")
     private List<Persona> personas;
 
     public void addPersona(Persona persona){
@@ -30,7 +30,7 @@ public class Direccion {
 
         this.personas.add(persona);
     }
-
+*/
 
     public  Direccion (){
 
