@@ -14,5 +14,6 @@ public class Consumer {
     @RabbitListener (queues = {"${proyecto2.queue}"})
     public void consume (List<Persona> listaPersonas){
         log.info("Mensaje Recibido...");
+        log.info(listaPersonas.toString());
     }
 }
