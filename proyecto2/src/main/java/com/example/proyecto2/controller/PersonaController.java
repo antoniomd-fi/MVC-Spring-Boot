@@ -1,12 +1,15 @@
 package com.example.proyecto2.controller;
 
+import com.example.proyecto2.Producer;
 import com.example.proyecto2.dto.PersonaDTO;
 import com.example.proyecto2.entity.Persona;
 import com.example.proyecto2.service.PersonaService;
 
+import com.example.proyecto2.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -18,6 +21,8 @@ public class PersonaController {
 
     @Autowired
     public PersonaService personaService;
+    @Autowired
+    public ProducerService producerService;
 
     @GetMapping("/getPersona/{id}")
     public ResponseEntity<PersonaDTO> getPersona (@PathVariable("id") Integer id){
@@ -35,6 +40,13 @@ public class PersonaController {
 
         return new ResponseEntity<>(returnList,HttpStatus.OK);
     }
+    //@Async
+    @GetMapping("/enviarLista")
+    public void sendList () {
+        List<Persona> list = personaService.getTable();
+        producerService.sendToRabbit(list);
+    }
+
 
 
 
