@@ -12,5 +12,6 @@ public class ConsumerService {
     @Getter public List<Persona> personaList;
     public void saveRecivedList(List<Persona> personaList){
         this.personaList = personaList;
+        log.warn(this.personaList.toString());
     }
 }

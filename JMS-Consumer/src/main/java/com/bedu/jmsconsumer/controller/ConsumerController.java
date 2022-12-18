@@ -21,6 +21,7 @@ public class ConsumerController {
     @Autowired
     ConsumerService consumerService;
 
+
     @GetMapping("/listaPersonas/download")
     public void downloadFile(HttpServletResponse response) throws DocumentException, IOException {
 
@@ -31,7 +32,7 @@ public class ConsumerController {
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+        String headerValue = "attachment; filename=personas_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
 
 

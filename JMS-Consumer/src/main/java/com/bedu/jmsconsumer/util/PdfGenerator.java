@@ -7,12 +7,13 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
-
+@Slf4j
 public class PdfGenerator {
     private List<Persona> listPersona;
 
@@ -43,11 +44,12 @@ public class PdfGenerator {
             table.addCell(String.valueOf(persona.getId()));
             table.addCell(persona.getNombre());
             table.addCell(persona.getApellidos());
-            // table.addCell(String.valueOf(persona.getDireccion_id()));
+            table.addCell(persona.getDireccion_id().toString());
         }
     }
 
     public  void export (HttpServletResponse response) throws DocumentException, IOException{
+
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
 
@@ -72,6 +74,6 @@ public class PdfGenerator {
         document.add(table);
 
         document.close();
-
+        log.info("Documento creado");
     }
 }
