@@ -3,11 +3,13 @@ package com.example.proyecto2.controller;
 import com.example.proyecto2.dto.DireccionDTO;
 import com.example.proyecto2.entity.Direccion;
 import com.example.proyecto2.service.DireccionService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class DireccionController {
 
@@ -26,7 +28,7 @@ public class DireccionController {
         try{
             direccion= this.direccionService.create(data.id, data.calle, data.numero_interior, data.numero_exterior,data.codigo_postal, data.colonia, data.ciudad, data.estado);
         }catch (Exception e){
-            System.out.println("Something was wrong");
+            log.error("Something was wrong");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(new DireccionDTO(direccion), HttpStatus.OK);

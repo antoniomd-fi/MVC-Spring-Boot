@@ -3,11 +3,13 @@ package com.example.proyecto2.controller;
 import com.example.proyecto2.dto.PasatiempoDTO;
 import com.example.proyecto2.entity.Pasatiempo;
 import com.example.proyecto2.service.PasatiempoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class PasatiempoController {
 
@@ -25,7 +27,7 @@ public class PasatiempoController {
         try{
             pasatiempo= this.pasatiempoService.create(data.id, data.nombre, data.pasatiempo, data.id_persona);
         }catch (Exception e){
-            System.out.println("Something was wrong");
+            log.error("Something was wrong");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(new PasatiempoDTO(pasatiempo), HttpStatus.OK);

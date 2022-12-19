@@ -18,6 +18,5 @@ public class Consumer {
     public void consume (List<Persona> listaPersonas){
         log.info("Mensaje Recibido...");
         consumerService.saveRecivedList(listaPersonas);
-        log.info(listaPersonas.toString());
     }
 }

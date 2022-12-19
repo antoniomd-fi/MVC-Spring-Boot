@@ -15,7 +15,7 @@ import java.util.List;
         private  Integer id;
         private  String nombre;
         private String apellidos;
-        private Integer direccion_id;
+       private Integer direccion_id;
 
        /* @ManyToOne()
        @JoinColumn(name = "direccion_id", referencedColumnName = "id", nullable = false)
@@ -46,20 +46,19 @@ import java.util.List;
             this.id = id;
             this.nombre = nombre;
             this.apellidos = apellidos;
-            //this.direccion.setId(direccion_id);
-            this.direccion_id = direccion_id;
+           this.direccion_id = direccion_id;
         }
 
         public Integer getId() {
-            return id;
+            return this.id;
         }
 
         public String getNombre() {
-            return nombre;
+            return this.nombre;
         }
 
         public String getApellidos() {
-            return apellidos;
+            return this.apellidos;
         }
 
         public Integer getDireccion_id() {
@@ -82,13 +81,6 @@ import java.util.List;
             this.direccion_id = direccion_id;
         }
 
-       /* public Direccion getDireccion() {
-            return direccion;
-        }
-
-        public void setDireccion(Direccion direccion) {
-            this.direccion = direccion;
-        }*/
 
 
     }

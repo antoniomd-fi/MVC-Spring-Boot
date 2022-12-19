@@ -6,6 +6,7 @@ import com.example.proyecto2.entity.Persona;
 import com.example.proyecto2.service.PersonaService;
 
 import com.example.proyecto2.service.ProducerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class PersonaController {
 
@@ -54,11 +56,10 @@ public class PersonaController {
     @PostMapping("/createPersona")
     public  ResponseEntity<PersonaDTO> createPersona (@RequestBody PersonaDTO data){
         Persona persona = new Persona();
-        System.out.println(data.id);
         try{
             persona= this.personaService.create(data.id, data.nombre, data.apellidos, data.direccion_id);
         }catch (Exception e){
-            System.out.println("Something was wrong");
+            log.error("Something was wrong");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(new PersonaDTO(persona), HttpStatus.OK);
