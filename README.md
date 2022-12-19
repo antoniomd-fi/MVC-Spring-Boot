@@ -21,7 +21,7 @@ A project for the module to Java Backend forBEDU &amp; HSBC Tech Academy
 * [Lombok](https://projectlombok.org/features/)
 * [OpenPDF](https://github.com/LibrePDF/OpenPDF)
 * [Git](https://git-scm.com/)
-* [Github](https://github.com/)
+
 
 <a name="installation"></a>
 ## 2. Installation and run instructions
